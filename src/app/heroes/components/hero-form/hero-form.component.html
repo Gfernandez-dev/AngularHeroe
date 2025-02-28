@@ -1,0 +1,35 @@
+<mat-card class="hero-form-card">
+    <mat-card-title class="hero-form-title">
+      {{ editingId ? 'Editar Héroe' : 'Nuevo Héroe' }}
+    </mat-card-title>
+  
+    <mat-card-content>
+      <form [formGroup]="heroForm" (ngSubmit)="saveHero()" class="hero-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" appUppercase />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Poder</mat-label>
+          <input matInput formControlName="power" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput rows="3" formControlName="description"></textarea>
+        </mat-form-field>
+  
+        <div class="button-row">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="heroForm.invalid">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  
